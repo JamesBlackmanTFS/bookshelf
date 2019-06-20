@@ -1,34 +1,30 @@
-# [bookshelf.js](http://bookshelfjs.org)
+# bookshelf.js
 
 [![NPM Version](https://img.shields.io/npm/v/bookshelf.svg?style=flat)](https://www.npmjs.com/package/bookshelf)
-[![Build Status](https://travis-ci.org/bookshelf/bookshelf.svg?branch=master)](https://travis-ci.org/bookshelf/bookshelf)
+[![Build Status](https://api.travis-ci.org/bookshelf/bookshelf.svg?branch=master)](https://travis-ci.org/bookshelf/bookshelf)
 [![Dependency Status](https://david-dm.org/bookshelf/bookshelf/status.svg)](https://david-dm.org/bookshelf/bookshelf)
 [![devDependency Status](https://david-dm.org/bookshelf/bookshelf/dev-status.svg)](https://david-dm.org/bookshelf/bookshelf?type=dev)
 
-Bookshelf is a JavaScript ORM for Node.js, built on the [Knex](http://knexjs.org) SQL query builder. Featuring both promise based and traditional callback interfaces, providing transaction support, eager/nested-eager relation loading, polymorphic associations, and support for one-to-one, one-to-many, and many-to-many relations.
+Bookshelf is a JavaScript ORM for Node.js, built on the [Knex](http://knexjs.org) SQL query builder. It features both Promise-based and traditional callback interfaces, transaction support, eager/nested-eager relation loading, polymorphic associations, and support for one-to-one, one-to-many, and many-to-many relations.
 
-It is designed to work well with PostgreSQL, MySQL, and SQLite3.
+It is designed to work with PostgreSQL, MySQL, and SQLite3.
 
 [Website and documentation](http://bookshelfjs.org). The project is [hosted on GitHub](http://github.com/bookshelf/bookshelf/), and has a comprehensive [test suite](https://travis-ci.org/bookshelf/bookshelf).
-
-## Notice
-
-This project is currently undergoing some changes. You may want to [read the discussion about the future of bookshelf.js](https://github.com/bookshelf/bookshelf/issues/1600) on GitHub.
 
 ## Introduction
 
 Bookshelf aims to provide a simple library for common tasks when querying databases in JavaScript, and forming relations between these objects, taking a lot of ideas from the the [Data Mapper Pattern](http://en.wikipedia.org/wiki/Data_mapper_pattern).
 
-With a concise, literate codebase, Bookshelf is simple to read, understand, and extend. It doesn't force you to use any specific validation scheme, provides flexible and efficient relation/nested-relation loading, and first class transaction support.
+With a concise, literate codebase, Bookshelf is simple to read, understand, and extend. It doesn't force you to use any specific validation scheme, and provides flexible, efficient relation/nested-relation loading and first-class transaction support.
 
-It's a lean Object Relational Mapper, allowing you to drop down to the raw knex interface whenever you need a custom query that doesn't quite fit with the stock conventions.
+It's a lean object-relational mapper, allowing you to drop down to the raw Knex interface whenever you need a custom query that doesn't quite fit with the stock conventions.
 
 ## Installation
 
-You'll need to install a copy of [knex.js](http://knexjs.org/), and either mysql, pg, or sqlite3 from npm.
+You'll need to install a copy of [Knex](http://knexjs.org/), and either `mysql`, `pg`, or `sqlite3` from npm.
 
 ```js
-$ npm install knex@0.13 --save
+$ npm install knex --save
 $ npm install bookshelf --save
 
 # Then add one of the following:
@@ -38,7 +34,7 @@ $ npm install mariasql
 $ npm install sqlite3
 ```
 
-The Bookshelf library is initialized by passing an initialized [Knex](http://knexjs.org/) client instance. The [knex documentation](http://knexjs.org/) provides a number of examples for different databases.
+The Bookshelf library is initialized by passing an initialized [Knex](http://knexjs.org/) client instance. The [Knex documentation](http://knexjs.org/) provides a number of examples for different databases.
 
 ```js
 var knex = require('knex')({
@@ -79,7 +75,10 @@ var Post = bookshelf.Model.extend({
 Here is an example to get you started:
 
 ```js
-var knex = require('knex')({client: 'mysql', connection: process.env.MYSQL_DATABASE_CONNECTION });
+var knex = require('knex')({
+  client: 'mysql',
+  connection: process.env.MYSQL_DATABASE_CONNECTION
+});
 var bookshelf = require('bookshelf')(knex);
 
 var User = bookshelf.Model.extend({
@@ -136,6 +135,16 @@ User.where('id', 1).fetch({withRelated: ['posts.tags']}).then(function(user) {
 ## Support
 
 Have questions about the library? Come join us in the [#bookshelf freenode IRC channel](http://webchat.freenode.net/?channels=bookshelf) for support on [knex.js](http://knexjs.org/) and bookshelf.js, or post an issue on [Stack Overflow](http://stackoverflow.com/questions/tagged/bookshelf.js) or in the GitHub [issue tracker](https://github.com/bookshelf/bookshelf/issues).
+
+## Contributing
+
+If you want to contribute to Bookshelf you'll usually want to report an issue or submit a
+pull-request. For this purpose the [online repository](https://github.com/bookshelf/bookshelf/) is
+available on GitHub.
+
+For further help setting up your local development environment or learning how you can contribute to
+Bookshelf you should read the [Contributing document](https://github.com/bookshelf/bookshelf/blob/master/.github/CONTRIBUTING.md)
+available on GitHub.
 
 ## F.A.Q.
 

@@ -2,11 +2,11 @@
 
 * Before sending a pull request for a feature or bug fix, be sure to have
 [tests](https://github.com/bookshelf/bookshelf/tree/master/test).
-* Use the same coding style as the rest of the
-[codebase](https://github.com/bookshelf/bookshelf/blob/master/src/bookshelf.js).
-* Use the [issue](https://github.com/bookshelf/bookshelf/blob/master/ISSUE-TEMPLATE.js) or
-[pull request](https://github.com/bookshelf/bookshelf/blob/master/PR-TEMPLATE.js) templates when creating your entry,
-this will help clarify the scope of your proposal or the subject of your issue.
+* Use the same coding style as the rest of the codebase. There is a pre-commit hook that formats
+code automatically for you using [prettier](https://prettier.io/), so this should be taken care of
+already.
+* Fill in the issue or pull request templates when creating your entry. This will help clarify the
+scope of your proposal or the subject of your issue.
 * All pull requests should be made to the `master` branch.
 
 ## Development Environment Setup
@@ -231,7 +231,9 @@ just make sure to follow the process explained below in the correct order.
 
 1. You should draft a new release on GitHub. This isn't strictly necessary, but is highly recommended. At this time you
 shouldn't publish it yet, but just save it as a draft instead.
+2. Make sure you're in the `master` branch with all the latest changes: `git pull`.
 2. Update the `CHANGELOG.md` file and update the version number of `package.json`. For the changelog just follow the
 format of the previous update. In general you should link to PRs instead of issues when mentioning changes. If the PRs'
-descriptions are well written they should already include any associated issues. At this point there is no need to commit and/or push these changes since that is taken care of automatically by the release scripts.
+descriptions are well written they should already include any associated issues. At this point there is no need to
+commit and/or push these changes since that is taken care of automatically by the release scripts.
 3. Just run `npm publish` and sit back.
